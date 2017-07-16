@@ -1,0 +1,58 @@
+<html>
+<link href="https://fonts.googleapis.com/css?family=Dhurjati|Emblema+One|Risque|Stalinist+One" rel="stylesheet">
+
+<style>
+	h1{
+		text-align: center;
+		padding: 3%;
+		font-size: 70px;
+		background: -webkit-radial-gradient(rgba(255,0,0,0.5),rgba(255,255,0,0.5));
+		font-family: 'Stalinist One', cursive;
+		text-decoration: underline;
+	}
+	body{
+		background: rgba(255,50,50,1);
+	}
+	input{
+		display: block;
+		text-align: center;
+		margin: 2%;
+		width: 90%;
+	}
+	.submit{
+		width: 90%;
+		height: 35%;
+		background: green;
+		color: white;
+		font-size: 20px;
+		font-family: 'Dhurjati', sans-serif;
+		text-decoration: underline;
+	}
+	.formedit{
+		background: white;
+		margin: 0 0 0 30%;
+		width: 30%;
+		height: 15%;
+		padding: 3%;
+		border: 2px solid red;
+	}
+</style>
+<body>
+	<h1> DELETE IMAGE </h1>
+	<div class="formedit">
+		<form action="deleteimage" method="post" enctype="multipart/form-data">
+			<input type="text" name="source" placeholder="/fileName" class="division">  
+			<input type="submit" class="submit"> 
+		</form>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"> </script>
+	<script>
+		$(".submit").mouseenter(function(){
+			$(".submit").css("background","-webkit-radial-gradient(rgba(0,255,0,1),rgba(55,255,55,1))");
+		});
+		$(".submit").mouseleave(function(){
+			$(".submit").css("background","green");
+		});
+	</script>	
+</body>
+</html>

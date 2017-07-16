@@ -1,0 +1,72 @@
+<html>
+<link href="https://fonts.googleapis.com/css?family=Dhurjati|Emblema+One|Risque|Stalinist+One" rel="stylesheet">
+
+<style>
+	h1{
+		text-align: center;
+		padding: 3%;
+		font-size: 70px;
+		background: -webkit-radial-gradient(rgba(255,0,0,0.5),rgba(255,255,0,0.5));
+		font-family: 'Stalinist One', cursive;
+		text-decoration: underline;
+	}
+	body{
+		background: rgba(255,50,50,1);
+	}
+	input{
+		display: block;
+		margin: 2%;
+	}
+	textarea{
+		margin: 5%;
+		text-align: justify;
+		font-size: 20px;
+	}
+	.submit{
+		width: 97%;
+		height: 14%;
+		background: green;
+		color: white;
+		font-size: 30px;
+		font-family: 'Dhurjati', sans-serif;
+		text-decoration: underline;
+	}
+	.formedit{
+		background: white;
+		margin: 0 0 0 20%;
+		width: 50%;
+		height: 60%;
+		padding: 3%;
+		border: 2px solid red;
+	}
+	.upload{
+		margin: 0 0 0 40%;
+		font-size: 15px;
+	}
+	.division{
+		margin: 2% 0 0 40%;
+		width: 20%;
+		text-align: center;
+	}
+</style>
+<body>
+	<h1> UPLOAD IMAGES </h1>
+	<div class="formedit">
+		<form action="uploadimage" method="post" enctype="multipart/form-data">
+			<input type="file" name="filename" class="upload">
+			<input type="text" name="category" placeholder="DIVISION(1/2/3)" class="division">  
+			<textarea name="details" cols="60" rows="10" placeholder="Any Details"> </textarea>
+			<input type="submit" class="submit"> 
+		</form>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"> </script>
+	<script>
+		$(".submit").mouseenter(function(){
+			$(".submit").css("background","-webkit-radial-gradient(rgba(0,255,0,1),rgba(55,255,55,1))");
+		});
+		$(".submit").mouseleave(function(){
+			$(".submit").css("background","green");
+		});
+	</script>	
+</body>
+</html>

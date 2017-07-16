@@ -1,0 +1,76 @@
+<html>
+<link href="https://fonts.googleapis.com/css?family=Dhurjati|Emblema+One|Risque|Stalinist+One" rel="stylesheet">
+<style>
+	body{
+		background: rgba(0,200,200,0.1);
+	}
+	h1{
+		font-size: 70px;
+		padding: 5%;
+		background: -webkit-radial-gradient(rgba(0,200,255,1),rgba(200,100,255,1));
+		color: white;
+		text-decoration: underline;
+		text-align: center;
+		border-bottom: 10px solid black;
+		font-family: 'Emblema One', cursive;
+	}
+	.images, .upload, .delete{
+		font-size: 30px;
+		color: white;
+		background: blue;
+		margin: 4%;
+		border: 3px solid black;
+		width: 25%;
+		height: 10%;
+		font-family: 'Risque', cursive;
+	}	
+	img{
+		width: 15%;
+		height: 75%;
+		margin: 0 0 -20px 10px;
+	}
+</style>
+
+<body>
+	<h1> WELCOME TO ART MANAGER </h1>
+	<button class="images"> VIEW Images <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/3d-glossy-green-orbs-icons-people-things/104090-3d-glossy-green-orb-icon-people-things-eye4-sc48.png"> </button>
+	<button class="upload"> UPLOAD Images <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Image_upload-tango.svg/2000px-Image_upload-tango.svg.png"> </button>
+	<button class="delete"> DELETE Images <img src="https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_delete-128.png"> </button>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"> </script>
+	<script>
+		$(".images").mouseenter(function(){
+			$(".images").css("background","-webkit-radial-gradient(rgba(0,0,255,1),rgba(200,0,255,1))");
+		});
+		$(".images").mouseleave(function(){
+			$(".images").css("background","blue");
+		});
+		
+		$(".upload").mouseenter(function(){
+			$(".upload").css("background","-webkit-radial-gradient(rgba(0,0,255,1),rgba(200,0,255,1))");
+		});
+		$(".upload").mouseleave(function(){
+			$(".upload").css("background","blue");
+		});
+		$(".delete").mouseenter(function(){
+			$(".delete").css("background","-webkit-radial-gradient(rgba(0,0,255,1),rgba(200,0,255,1))");
+		});
+		$(".delete").mouseleave(function(){
+			$(".delete").css("background","blue");
+		});		
+	
+		$(".images").click(function(){
+			var win=window.open("http://localhost:8080/viewimage",'_blank');
+  			win.focus();
+		});
+		$(".upload").click(function(){
+			var win=window.open("http://localhost:8080/uploadimage",'_blank');
+  			win.focus();
+		});
+		$(".delete").click(function(){
+			var win=window.open("http://localhost:8080/deleteimage",'_blank');
+  			win.focus();
+		});
+	
+	</script>
+</body>
+</html>

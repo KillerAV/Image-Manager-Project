@@ -1,0 +1,51 @@
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<link href="https://fonts.googleapis.com/css?family=Dhurjati|Diplomata+SC|Emblema+One|Risque|Seymour+One|Stalinist+One" rel="stylesheet">
+
+<style>
+	.imgedit{
+		height: 300px;
+		margin: 3% 3%;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	h1{
+		text-align: center;
+		font-family: 'Risque', cursive;
+		font-size: 50px;
+		text-decoration: underline;
+	}
+</style>
+
+<body>
+	<h1> </h1>
+	<div class="row class1"> </div>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"> </script>
+	<script src="/socket.io/socket.io.js"> </script>
+	<script>
+		var socket=io();
+		socket.on('viewimage',function(msg){	
+			var obj=JSON.parse(msg).array;
+			if(obj[0].division==="1")
+				$("h1").text("PAINTINGS FOR DRAWING ROOM");
+			else if(obj[0].division==="2")
+				$("h1").text("PAINTINGS FOR HALL");
+			else
+				$("h1").text("PAINTINGS FOR BEDROOM");
+			for(var i=0;i<obj.length;i++)
+			{
+				var str="";
+				str+=obj[i].division;
+				str+="/";
+				str+=i;
+				$(".class1").append('<a href="http://localhost:8080/fullpage/' + str + '"> <img src="' + obj[i].source + '" class="imgedit col-md-3">' + '</a>');		 
+			}
+		});
+		$(".class1").on("mouseenter","a",function(){
+			$("a").css("cursor","zoom-in");
+		});
+		$(".class1").on("mouseleave","a",function(){
+			$("a").css("cursor","auto");
+		});
+	</script>
+</body>
+</html>

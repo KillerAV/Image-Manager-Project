@@ -1,0 +1,29 @@
+<html>
+<link href="https://fonts.googleapis.com/css?family=Dhurjati|Diplomata+SC|Emblema+One|Risque|Seymour+One|Stalinist+One" rel="stylesheet">
+<style>
+	body{
+		background: rgba(55,0,255,0.2);
+	}
+	h1{
+		font-size: 70px;
+		padding: 5%;
+		background: -webkit-radial-gradient(rgba(150,200,250,1),rgba(155,155,100,1));
+		text-align: center;
+		text-decoration: underline;
+		border-bottom: 10px solid black;
+		margin: 10% 0;
+		font-family: 'Diplomata SC', cursive;
+	}
+</style>
+<body>
+	<h1> </h1>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"> </script>
+	<script src="/socket.io/socket.io.js"> </script>
+	<script>
+		var socket=io();
+		socket.on('finalpage',function(msg){
+			$("h1").text(msg);
+		});		
+	</script>
+</body>
+</html>

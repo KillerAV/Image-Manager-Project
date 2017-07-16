@@ -1,0 +1,53 @@
+<html>
+<link href="https://fonts.googleapis.com/css?family=Dhurjati|Diplomata+SC|Emblema+One|Risque|Seymour+One|Stalinist+One" rel="stylesheet">
+<style>
+	div{
+		background: red;
+		width: 80%;
+		height: 100%;
+		margin: 0 10%;
+		position: relative;
+	}
+	p{
+		padding: 1.5%;
+		font-size: 20px;
+		position: absolute;
+		bottom: 0;
+		margin: 0;
+		background: rgba(0,0,0,0.5);
+		width: 97%;
+		height: 15%;
+		color: white;
+		text-align: center;
+		font-family: 'Risque', cursive;
+		font-size: 20px;
+	}
+	h1{
+		text-align: center;
+		color: white;
+		background: rgba(0,0,0,0.5);
+		text-decoration: underline;
+		padding: 20px;	
+		font-family: 'Stalinist One', cursive;
+	}
+</style>
+<body>
+	<div>
+		<h1> IMAGE VIEW </h1>
+		<p> </p>	
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-1.11.1.js"> </script>
+	<script src="/socket.io/socket.io.js"> </script>
+	<script>
+		var socket=io();
+		socket.on('fullpage',function(msg){
+			var obj=JSON.parse(msg);
+			$("div").css("background",'url("' + obj.source + '")');
+			$("div").css("background-size","cover");
+			$("div").css("background-position","center");
+			$("p").text(obj.details);
+		});
+	</script>
+</body>
+</html>
